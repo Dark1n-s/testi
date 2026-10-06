@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Наш магазин</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .product { border: 1px solid #ccc; padding: 15px; margin-bottom: 10px; width: 300px; }
+        .price { color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Каталог товарів</h1>
+
+    <!-- Проходимо циклом по всіх товарах, які передали з бази даних -->
+    {% for product in products %}
+        <div class="product">
+            <h2>{{ product.name }}</h2>
+            <p class="price">Ціна: {{ product.price }} грн</p>
+            <p>В наявності: {{ product.stock }} шт.</p>
+        </div>
+    {% empty %}
+        <p>Товарів поки немає.</p>
+    {% endfor %}
+
+</body>
+</html>
